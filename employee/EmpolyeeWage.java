@@ -1,18 +1,20 @@
 package com.bridgrlabz.employee;
 
-public class Employeewagebulider {
-	// CONSTANTS
+public class EmpolyeeWage {
+
 	public static final int isPartTime = 1;
 	public static final int isFullTime = 2;
 	public static final int empRatePerHour = 20;
 	public static final int noOfWorkingDay = 20;
 	public static final int maxHrsInMonth = 100;
 
-	public static void main(String[] args) {
+	public static int computeEmpWage() {
+
 		// VARIABLE
 		int empHrs = 0;
 		int totalEmpHrs = 0;
 		int totalWorkingDay = 0;
+
 		// computation
 		while (totalEmpHrs <= maxHrsInMonth && totalWorkingDay < noOfWorkingDay) {
 			totalWorkingDay++;
@@ -32,7 +34,13 @@ public class Employeewagebulider {
 			System.out.println("Day#: " + totalWorkingDay + " EmpHrs: " + empHrs);
 		}
 		int totalEmpWage = totalEmpHrs * empRatePerHour;
-		System.out.println("total Emp Wage: = " + totalEmpWage);
-
+		System.out.println("Total Emp Wage " + totalEmpWage);
+		return totalEmpWage;
 	}
+
+	public static void main(String[] args) {
+
+		computeEmpWage();
+	}
+
 }
