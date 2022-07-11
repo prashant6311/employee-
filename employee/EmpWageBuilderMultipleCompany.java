@@ -1,14 +1,11 @@
 package com.bridgrlabz.employee;
 
-public class EmpolyeeWage {
+public class EmpWageBuilderMultipleCompany {
 
 	public static final int isPartTime = 1;
 	public static final int isFullTime = 2;
-	public static final int empRatePerHour = 20;
-	public static final int noOfWorkingDay = 20;
-	public static final int maxHrsInMonth = 100;
 
-	public static int computeEmpWage() {
+	public static int computeEmpWage(String company, int empRatePerHour, int numWorkingDay, int maxHourPerMonth) {
 
 		// VARIABLE
 		int empHrs = 0;
@@ -16,7 +13,7 @@ public class EmpolyeeWage {
 		int totalWorkingDay = 0;
 
 		// computation
-		while (totalEmpHrs <= maxHrsInMonth && totalWorkingDay < noOfWorkingDay) {
+		while (totalEmpHrs <= maxHourPerMonth && totalWorkingDay < numWorkingDay) {
 			totalWorkingDay++;
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch (empCheck) {
@@ -34,13 +31,14 @@ public class EmpolyeeWage {
 			System.out.println("Day#: " + totalWorkingDay + " EmpHrs: " + empHrs);
 		}
 		int totalEmpWage = totalEmpHrs * empRatePerHour;
-		System.out.println("Total Emp Wage " + totalEmpWage);
+		System.out.println("Total Emp Wage for company: " + company + " is: " + totalEmpWage);
 		return totalEmpWage;
 	}
 
 	public static void main(String[] args) {
 
-		computeEmpWage();
+		computeEmpWage("DMart", 20, 2, 10);
+		computeEmpWage("Relince", 10, 4, 20);
 	}
 
 }
